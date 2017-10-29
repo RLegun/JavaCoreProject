@@ -6,6 +6,7 @@ public class IntegerQueue {
     private int front;
     private int rear;
     private int elements;
+    private int x = 0;
 
     public IntegerQueue() {
         size = 0;
@@ -33,8 +34,13 @@ public class IntegerQueue {
             System.out.println("arrQueue is empty");
             return 0;
         } else {
-            int frontItem = arrQueue[front++];
-            arrQueue[front - 1] = 0;
+            int frontItem = arrQueue[front];
+            for (int i = 0; i < arrQueue.length; i++) {
+                if (i >= rear) arrQueue[rear] = 0;
+                else arrQueue[i] = arrQueue[i + 1];
+            }
+            rear--;
+            //arrQueue[front - 1] = 0;
             this.showArrQueue();
             return frontItem;
         }

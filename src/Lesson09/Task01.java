@@ -19,8 +19,8 @@ public class Task01 {
 
         for (int i = 0; i < myQueue.getSize(); i++) {
             int frontItem = myQueue.dequeue();
-            System.out.println("Current element is "+frontItem);
-            System.out.println("Items left: "+(--elements));
+            System.out.println("Current element is: "+frontItem);
+            System.out.println("Elements left: "+(--elements));
             System.out.println("-----------------------------");
         }
     }
