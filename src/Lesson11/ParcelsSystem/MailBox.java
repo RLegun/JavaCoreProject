@@ -10,6 +10,11 @@ public class MailBox extends Box {
         price = 0;
     }
 
+    public MailBox(double weight, double price) {
+        this.weight = weight;
+        this.price = price;
+    }
+
     public MailBox(double height, double width, double depth, double weight, double price) {
         super(height, width, depth);
         this.weight = weight;
@@ -30,6 +35,13 @@ public class MailBox extends Box {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    @Override
+    public void getInfo() {
+        System.out.println("Вага нашої коробки = "+weight+" кг.");
+        System.out.println("Ціна нашої коробки = "+price+" грн.");
+        System.out.println("--------------------------------------------------------------------");
     }
 
     @Override

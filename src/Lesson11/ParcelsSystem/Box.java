@@ -41,6 +41,12 @@ public class Box {
         this.depth = depth;
     }
 
+    public void getInfo(){
+        double volume = height * width * depth;
+        System.out.println("Об'єм нашої коробки = "+volume);
+        System.out.println("--------------------------------------------------------------------");
+    }
+
     @Override
     public String toString() {
         return "Box{" +

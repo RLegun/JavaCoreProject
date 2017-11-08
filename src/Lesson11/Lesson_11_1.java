@@ -2,12 +2,12 @@ package Lesson11;
 
 public class Lesson_11_1 {
     public static void main(String[] args) {
-        int firtsValue = 10;
+        int firstValue = 10;
         int secondValue = 20;
 
-        incrementNumber(firtsValue);
+        incrementNumber(firstValue);
 
-        System.out.println("after method = "+firtsValue);
+        System.out.println("after method = "+firstValue);
 
 
     }
