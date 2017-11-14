@@ -1,6 +1,6 @@
 package Lesson14;
 
-public class Figure {
+public abstract class Figure {
     private double dim1;
     private  double dim2;
 
@@ -9,11 +9,7 @@ public class Figure {
         this.dim2 = dim2;
     }
 
-    public double getArea(){
-        System.out.println("Неможливо обрахувать площу фігури!");
-
-        return 0;
-    }
+    public  abstract double getArea();
 
     public double getDim1() {
         return dim1;
@@ -30,4 +26,8 @@ public class Figure {
     public void setDim2(double dim2) {
         this.dim2 = dim2;
     }
+
+     public final void getEnformation (){
+         System.out.println("some enformation");
+     }
 }
