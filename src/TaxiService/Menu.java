@@ -7,16 +7,9 @@ public class Menu {
 
     public static void menu() {
 
+        showDefaultMenu();
+
         int choice;
-        System.out.println("**************************************************");
-        System.out.println("*                      MENU                      *");
-        System.out.println("**************************************************");
-        System.out.println("* 1. ЗАМОВИТИ ТАКСІ:                             *");
-        System.out.println("* 2. ПЕРЕВІРИТИ НАЯВНІСТЬ ВІЛЬНИХ МАШИН:         *");
-        System.out.println("* 3. ПЕРЕВІРИТИ СТАТУС ЗАМОВЛЕННЯ:               *");
-        System.out.println("* 9. УВІЙТИ ЯК АДМІНІСТРАТОР:                    *");
-        System.out.println("* 0. ВИЙТИ ІЗ СИСТЕМИ:                           *");
-        System.out.println("**************************************************");
         do {
             System.out.print("--> ");
             choice = scanner.nextInt();
@@ -31,13 +24,11 @@ public class Menu {
                 case 3:
                     ClientList.getStatusOrder();
                     break;
+                case 4:
+                    Fare.calculateFare();
+                    break;
                 case 9:
-                    //TODO Replace checking passowrd
-                    System.out.print("Введіть пароль --> ");
-                    int password = scanner.nextInt();
-                    if (password == 1111)
-                        menuAdministrator();
-                    else System.out.println("Невірний пароль!");
+                    menuAdministrator();
                     break;
                 case 0:
                     System.out.println("Вихід...");
@@ -52,7 +43,72 @@ public class Menu {
     }
 
     public static void menuAdministrator() {
-        int choice;
+        System.out.print("Введіть пароль --> ");
+        int password = scanner.nextInt();
+        if (password == 1111) {
+
+            showAdministratorMenu();
+
+            int choice;
+            do {
+                System.out.print("--> ");
+                choice = scanner.nextInt();
+
+                switch (choice) {
+                    case 1:
+                        CreateNewTaxiDriver.newTaxiDriver();
+                        break;
+                    case 2:
+                        CreateNewOrder.newOrder();
+                        break;
+                    case 3:
+                        TaxiDriverList.showFreeTaxi();
+                        break;
+                    case 4:
+                        TaxiDriverList.showDrivers();
+                        break;
+                    case 5:
+                        ClientList.showClients();
+                        break;
+                    case 6:
+                        ClientList.WaitingClients();
+                        break;
+                    case 7:
+                        OrderList.showOrders();
+                        break;
+                    case 8:
+                        TaxiDriverList.showReservedTaxi();
+                        break;
+                    case 9:
+                        menu();
+                        break;
+                    case 0:
+                        System.out.println("Вихід...");
+                        break;
+                    default:
+                        System.out.println("Не правильний вибір!!");
+
+                }
+
+            } while (choice != 0);
+            System.exit(0);
+        } else System.out.println("Невірний пароль!");
+    }
+
+    public static void showDefaultMenu() {
+        System.out.println("**************************************************");
+        System.out.println("*                      MENU                      *");
+        System.out.println("**************************************************");
+        System.out.println("* 1. ЗАМОВИТИ ТАКСІ:                             *");
+        System.out.println("* 2. ПЕРЕВІРИТИ НАЯВНІСТЬ ВІЛЬНИХ МАШИН:         *");
+        System.out.println("* 3. ПЕРЕВІРИТИ СТАТУС ЗАМОВЛЕННЯ:               *");
+        System.out.println("* 4. РОЗРАХУВАТИ ВАРТІСТЬ ПОЇЗДКИ:               *");
+        System.out.println("* 9. УВІЙТИ ЯК АДМІНІСТРАТОР:                    *");
+        System.out.println("* 0. ВИЙТИ ІЗ СИСТЕМИ:                           *");
+        System.out.println("**************************************************");
+    }
+
+    public static void showAdministratorMenu() {
         System.out.println("**************************************************");
         System.out.println("*                 ADMINISTRATOR                  *");
         System.out.println("**************************************************");
@@ -67,47 +123,5 @@ public class Menu {
         System.out.println("* 9. ПОВЕРНУТИСЬ В МЕНЮ КОРИСТУВАЧА:             *");
         System.out.println("* 0. ВИЙТИ ІЗ СИСТЕМИ:                           *");
         System.out.println("**************************************************");
-        do {
-            System.out.print("--> ");
-            choice = scanner.nextInt();
-
-            switch (choice) {
-                case 1:
-                    CreateNewTaxiDriver.newTaxiDriver();
-                    break;
-                case 2:
-                    CreateNewOrder.newOrder();
-                    break;
-                case 3:
-                    TaxiDriverList.showFreeTaxi();
-                    break;
-                case 4:
-                    TaxiDriverList.showDrivers();
-                    break;
-                case 5:
-                    ClientList.showClients();
-                    break;
-                case 6:
-                    ClientList.WaitingClients();
-                    break;
-                case 7:
-                    OrderList.showOrders();
-                    break;
-                case 8:
-                    TaxiDriverList.showReservedTaxi();
-                    break;
-                case 9:
-                    menu();
-                    break;
-                case 0:
-                    System.out.println("Вихід...");
-                    break;
-                default:
-                    System.out.println("Не правильний вибір!!");
-
-            }
-
-        } while (choice != 0);
-        System.exit(0);
     }
 }

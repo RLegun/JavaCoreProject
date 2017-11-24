@@ -2,7 +2,7 @@ package TaxiService;
 
 import java.time.LocalDate;
 
-public class Person {
+public abstract class Person {
     private String name;
     private String surname;
     private LocalDate bornDate;
@@ -11,7 +11,7 @@ public class Person {
     public Person() {
         name = "name";
         surname = "surname";
-        bornDate = LocalDate.of(0000,00,00);
+        bornDate = LocalDate.now();
         numberPhone = "numberPhone";
     }
 
@@ -59,6 +59,9 @@ public class Person {
     public void setNumberPhone(String numberPhone) {
         this.numberPhone = numberPhone;
     }
+
+    public abstract void calculatePayment();
+    public abstract void calculatePayment(int percent);
 
     @Override
     public String toString() {

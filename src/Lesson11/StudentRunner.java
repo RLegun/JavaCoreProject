@@ -39,7 +39,7 @@ public class StudentRunner {
 
         System.out.println(officeWorker);
         officeWorker.raiseSalary(10);
-        System.out.println(officeWorker);;
+        System.out.println(officeWorker);
         //-------------------------------------------------------------------
         Teacher teacher = new Teacher();
 

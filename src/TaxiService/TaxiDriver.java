@@ -2,7 +2,7 @@ package TaxiService;
 
 import java.time.LocalDate;
 
-public class TaxiDriver extends Employee {
+public final class TaxiDriver extends Employee {
     private Car car;
     private int id;
 

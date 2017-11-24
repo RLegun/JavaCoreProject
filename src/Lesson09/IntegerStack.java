@@ -18,13 +18,13 @@ public class IntegerStack {
     }
 
     public void push(int item) {
-        if (top == size) System.out.println("Stack overflow");
+        if (top == size) System.out.println("MyStack overflow");
         else stack[++top] = item;
     }
 
     public int pop() {
         if (top < 0) {
-            System.out.println("Stack is empty");
+            System.out.println("MyStack is empty");
             return 0;
         } else {
             int temItem = stack[top--];
@@ -39,7 +39,7 @@ public class IntegerStack {
     }
 
     public void showStack() {
-        System.out.println("Stack of integer elements");
+        System.out.println("MyStack of integer elements");
         for (int i = (size - 1); i >= 0; i--) {
             System.out.println("[" + i + "] = " + stack[i]);
         }

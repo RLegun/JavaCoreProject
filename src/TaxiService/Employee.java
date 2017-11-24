@@ -11,4 +11,7 @@ public class Employee extends Person {
     public Employee() {
 
     }
+
+    public void calculatePayment(){}
+    public void calculatePayment(int percent){}
 }
