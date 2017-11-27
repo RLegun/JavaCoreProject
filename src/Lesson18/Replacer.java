@@ -3,7 +3,6 @@ package Lesson18;
 import Lesson16.InfoList;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class Replacer {
      private IRead iRead;
@@ -16,20 +15,19 @@ public class Replacer {
         this.iWrite = writer;
     }
 
-    public void replace(){
-        String tempText = iRead.getInformationFromConsole();
+    public void replace() throws IOException {
+        String tempText = iRead.getInformation();
         tempText = tempText.replace("0","9");
         iShow.showInformation(tempText);
     }
 
     public void fileReader() throws IOException {
-        ArrayList<String> infoFromFile = iRead.getInfoFromFile();
-        iShow.showInfoFromFile(infoFromFile);
-        InfoList.setInfoLists(infoFromFile);
+        String infoFromFile = iRead.getInformation();
+        iShow.showInformation(infoFromFile);
     }
 
     public void fileWriter() throws IOException {
-        ArrayList<String> listTempText = iRead.getInfoFromConsole();
+        String listTempText = iRead.getInformation();
         iWrite.putInfoIntoFile(listTempText);
     }
 }

@@ -17,10 +17,10 @@ public class MenuReplacer {
 
             switch (choice) {
                 case 1:
-                    CreateReplacer.createReplacer().fileReader();
+                    CreateReplacer.createReplacerReaderFromFile().fileReader();
                     break;
                 case 2:
-                    CreateReplacer.createReplacer().fileWriter();
+                    CreateReplacer.createReplacerReaderFromConsole().fileWriter();
                     break;
                 case 3:
                     CreateReplacer.createReplacer().replace();
