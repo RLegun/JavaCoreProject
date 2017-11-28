@@ -19,6 +19,8 @@ public class CheckPrintDatabase implements CheckPrintable {
         writer.write("  СУМА ОПЛАТИ: " + sum+"                           " + System.getProperty("line.separator"));
         writer.write("  "+date+"                                         " + System.getProperty("line.separator"));
         writer.write("---------------------------------------------------" + System.getProperty("line.separator"));
+
+
         writer.close();
     }
 }

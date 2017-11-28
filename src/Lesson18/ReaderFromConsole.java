@@ -9,7 +9,6 @@ public class ReaderFromConsole implements IRead{
     public String getInformation() throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("Введіть текст:");
-        String string = reader.readLine();
-        return string;
+        return reader.readLine();
     }
 }

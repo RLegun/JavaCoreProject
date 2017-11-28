@@ -3,7 +3,7 @@ package Lesson18;
 public class CreateReplacer {
 
     public static Replacer createReplacer(){
-        Replacer replacer = new Replacer(new Reader(),new Shower(),new Writer());
+        Replacer replacer = new Replacer(new Reader(),new ShowReplacedText(),new Writer());
         return replacer;
     }
 

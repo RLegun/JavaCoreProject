@@ -1,7 +1,5 @@
 package Lesson18;
 
-import Lesson16.InfoList;
-
 import java.io.IOException;
 
 public class Replacer {

@@ -47,8 +47,4 @@ public class MenuReplacer {
         System.out.println("* 0. ВИЙТИ ІЗ МЕНЮ:                                *");
         System.out.println("****************************************************");
     }
-
-    public static int getChoice() {
-        return choice;
-    }
 }

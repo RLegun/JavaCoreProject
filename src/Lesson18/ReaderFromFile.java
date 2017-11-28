@@ -9,9 +9,7 @@ public class ReaderFromFile implements IRead{
     @Override
     public String getInformation() throws IOException {
         System.out.print("enter the path --> ");
-        String path = scanner.next();
-        File f = new File(path);
-        BufferedReader text = new BufferedReader(new FileReader(f));
+        BufferedReader text = new BufferedReader(new FileReader(new File(scanner.next())));
         return text.readLine();
     }
 }

@@ -1,6 +1,6 @@
 package Lesson18;
 
-public class Shower implements IShow {
+public class ShowReplacedText implements IShow {
 
     @Override
     public void showInformation(String item) {
