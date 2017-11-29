@@ -28,15 +28,6 @@ public class MenuCashRegister {
                 case 2:
                     CreatePayment.createPaymentCreditCard().payment();
                     break;
-                case 3:
-                    CreateCheck.createCheck().printCheck();
-                    break;
-                case 4:
-                    CreateCheck.createCheckPhone().printCheck();
-                    break;
-                case 5:
-                    CreateCheck.createCheck().printDoubleCheck();
-                    break;
                 case 0:
                     System.out.println("Exit...");
                     break;
@@ -67,9 +58,9 @@ public class MenuCashRegister {
         System.out.println("****************************************************");
         System.out.println("   ОПЛАЧЕНО: "+sum+" ГРН.                           ");
         System.out.println("****************************************************");
-        System.out.println("* 3. роздрукувати чек:                             *");
-        System.out.println("* 4. відправити чек на телефон:                    *");
-        System.out.println("* 5. роздрукувати та відправити нателефон:         *");
+        System.out.println("* 1. роздрукувати чек:                             *");
+        System.out.println("* 2. відправити чек на телефон:                    *");
+        System.out.println("* 3. роздрукувати та відправити на телефон:        *");
         System.out.println("* 0. вийти із системи:                             *");
         System.out.println("****************************************************");
     }

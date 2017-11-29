@@ -1,27 +1,25 @@
 package Lesson19.TaskCashRegister;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
 
 public class Paymaster {
+    public Scanner scanner = new Scanner(System.in);
     private Paidable paidable;
-    private CheckPrintable printCheck;
-    private CheckPrintable printCheckPhone;
-    private CheckPrintable printCheckDatabase;
+    private ArrayList<CheckPrintable> check = new ArrayList<>(
+            Arrays.asList(new CheckPrintConsole(), new CheckPrintPhone(), new CheckPrintDatabase()));
+
 
     public Paymaster(Paidable paidable) {
         this.paidable = paidable;
     }
 
-    public Paymaster(CheckPrintable printCheck) {
-        this.printCheck = printCheck;
-        printCheckPhone = new CheckPrintPhone();
-        printCheckDatabase = new CheckPrintDatabase();
-    }
-
     public void payment() throws IOException {
         int paid = paidable.executePay();
         if (paid >= MenuCashRegister.getSum())
-        MenuCashRegister.showMenuPrintCheck();
+            printCheck();
         else {
             System.out.println("Не достатньо коштів для оплати!!!");
             System.exit(0);
@@ -29,15 +27,25 @@ public class Paymaster {
     }
 
     public void printCheck() throws IOException {
-        printCheck.saveCheck("ОПЛАТА ПРОЙШЛА УСПІШНО:");
-        printCheckDatabase.saveCheck("ОПЛАТА ПРОЙШЛА УСПІШНО:");
-        System.exit(0);
-    }
-
-    public void printDoubleCheck() throws IOException {
-        printCheck.saveCheck("ОПЛАТА ПРОЙШЛА УСПІШНО:");
-        printCheckPhone.saveCheck("ОПЛАТА ПРОЙШЛА УСПІШНО:");
-        printCheckDatabase.saveCheck("ОПЛАТА ПРОЙШЛА УСПІШНО:");
-        System.exit(0);
+        MenuCashRegister.showMenuPrintCheck();
+        switch (scanner.nextInt()) {
+            case 1:
+                for (CheckPrintable x : check) {
+                    if (x instanceof CheckPrintConsole || x instanceof CheckPrintDatabase) {
+                        x.saveCheck("ОПЛАТА ПРОЙШЛА УСПІШНО");
+                    }
+                }
+                System.exit(0);
+            case 2:
+                for (CheckPrintable x : check) {
+                    if (x instanceof CheckPrintPhone || x instanceof CheckPrintDatabase) {
+                        x.saveCheck("ОПЛАТА ПРОЙШЛА УСПІШНО");
+                    }
+                }
+                System.exit(0);
+            case 3:
+                for (CheckPrintable x : check) x.saveCheck("ОПЛАТА ПРОЙШЛА УСПІШНО");
+                System.exit(0);
+        }
     }
 }
