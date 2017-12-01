@@ -23,10 +23,10 @@ public class MenuCashRegister {
 
             switch (choice) {
                 case 1:
-                    CreatePayment.createPaymentCash().payment();
+                    //CreatePayment.createPaymentCash();
                     break;
                 case 2:
-                    CreatePayment.createPaymentCreditCard().payment();
+                    //CreatePayment.createPaymentCreditCard();
                     break;
                 case 0:
                     System.out.println("Exit...");

@@ -12,11 +12,13 @@ public class Paymaster {
             Arrays.asList(new CheckPrintConsole(), new CheckPrintPhone(), new CheckPrintDatabase()));
 
 
+
+
     public Paymaster(Paidable paidable) {
         this.paidable = paidable;
     }
 
-    public void payment() throws IOException {
+    public void payment(){
         int paid = paidable.executePay();
         if (paid >= MenuCashRegister.getSum())
             printCheck();
@@ -26,7 +28,12 @@ public class Paymaster {
         }
     }
 
-    public void printCheck() throws IOException {
+
+    public void addPaymentMethod(CheckPrintable obj){
+        check.add(obj);
+    }
+
+    public void printCheck() {
         MenuCashRegister.showMenuPrintCheck();
         switch (scanner.nextInt()) {
             case 1:
@@ -46,6 +53,27 @@ public class Paymaster {
             case 3:
                 for (CheckPrintable x : check) x.saveCheck("ОПЛАТА ПРОЙШЛА УСПІШНО");
                 System.exit(0);
+            case 4:
+                for (CheckPrintable x : check) {
+                    if (x instanceof CheckPrintConsole){
+                        x.saveCheck("ОПЛАТА ПРОЙШЛА УСПІШНО");
+                    }
+                }
+            case 5:
+                for (CheckPrintable x : check) {
+                    if (x instanceof CheckPrintDatabase){
+                        x.saveCheck("ОПЛАТА ПРОЙШЛА УСПІШНО");
+                    }
+                }
+                break;
+            case 6:
+                for (CheckPrintable x : check) {
+                    if (x instanceof CheckPrintPhone) {
+                        x.saveCheck("ОПЛАТА ПРОЙШЛА УСПІШНО");
+                    }
+                }
+                break;
+
         }
     }
 }

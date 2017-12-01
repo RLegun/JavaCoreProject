@@ -1,13 +1,13 @@
 package Lesson19.TaskCashRegister;
 
 public class CreatePayment {
-    public static Paymaster createPaymentCash() {
+    public static void createPaymentCash() {
         Paymaster payment = new Paymaster(new PaidCash());
-        return payment;
+        payment.payment();
     }
 
-    public static Paymaster createPaymentCreditCard() {
+    public static void createPaymentCreditCard() {
         Paymaster payment = new Paymaster(new PaidCreditCard());
-        return payment;
+        payment.payment();
     }
 }
